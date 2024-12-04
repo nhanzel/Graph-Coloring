@@ -1,6 +1,8 @@
+import re
+
 def process():
     # Read the data from the file
-    with open('data2.txt', 'r') as file:
+    with open('data12.txt', 'r') as file:
         lines = file.readlines()
 
     # Initialize an empty dictionary to store the graph
@@ -8,7 +10,7 @@ def process():
 
     # Process each line and split into key and value
     for line in lines:
-        key, value = line.strip().split('\t')
+        key, value = re.split(r'[\t\s]+', line.strip())
         if key not in graph:
             graph[key] = []
         graph[key].append(value)
